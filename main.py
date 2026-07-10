@@ -40,6 +40,18 @@ class HistoricalEventFinder:
         fig.show()
 
 
+        for value, subset in self.df.groupby('country'):
+           print(subset['year']==2010, subset['year']==2000)
+
+        fig2 = px.choropleth(
+            self.df,
+            locations="country",
+            locationmode='country names',
+            color="students5_estimated_sum",
+        )
+        fig2.show()
+
+
     def main(self):
         historyObj.test_print()
         historyObj.plot_line_chart()
