@@ -39,6 +39,9 @@ class HistoricalEventFinder:
         # 4. Display the chart
         fig.show()
 
+
+
+    def plot_change_map(self):
         change_during_event = pd.DataFrame(columns=["country", "rate_of_change"])
         for value, subset in self.df.groupby('country'):
             try:
@@ -65,6 +68,7 @@ class HistoricalEventFinder:
     def main(self):
         historyObj.test_print()
         historyObj.plot_line_chart()
+        self.plot_change_map()
 
 if __name__ == "__main__":
     historyObj = HistoricalEventFinder(r'c:\Users\james\Documents\Repos\cbds-take-home\enrollments.csv')
