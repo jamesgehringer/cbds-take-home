@@ -29,3 +29,14 @@ fig = px.scatter(
     hover_data=["gdp", "country"] # Additional info on mouse hover
 )
 fig.show()
+
+fig2 = px.scatter(
+    df_joined, 
+    x="gdp", 
+    y="students5_estimated_sum", 
+    color="region",        # Different colors per group
+    hover_data=["gdp", "country", "year"], # Additional info on mouse hover
+    trendline="lowess"
+)
+fig2.data[1].visible = 'legendonly' # Hides trendline by default
+fig2.show()
