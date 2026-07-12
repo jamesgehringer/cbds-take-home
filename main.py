@@ -39,15 +39,25 @@ class HistoricalEventFinder:
         # 4. Display the chart
         fig.show()
 
-
+        change_during_event = pd.DataFrame(columns=["country", "rate_of_change"])
         for value, subset in self.df.groupby('country'):
-           print(subset['year']==2010, subset['year']==2000)
-
+            try:
+                print(subset["country"].iloc[0], subset.query("year == 2010")['students5_estimated_sum'].iloc[0]-subset.query("year == 2000")['students5_estimated_sum'].iloc[0])
+                rate = subset.query("year == 2010")['students5_estimated_sum'].iloc[0]-subset.query("year == 2000")['students5_estimated_sum'].iloc[0]
+                new_row = pd.DataFrame([{'country':subset["country"].iloc[0], 'rate_of_change':rate.astype('float64')}])
+                change_during_event = pd.concat([change_during_event, new_row], ignore_index=True)
+            except IndexError:
+                print(f"{subset["country"].iloc[0]} does not have enough data")
+        
+        change_during_event['rate_of_change'] = pd.to_numeric(change_during_event['rate_of_change'], errors='coerce')
+        
         fig2 = px.choropleth(
-            self.df,
+            change_during_event,
             locations="country",
             locationmode='country names',
-            color="students5_estimated_sum",
+            color="rate_of_change",
+            color_continuous_scale="Viridis",
+            range_color=(0, 6000000),
         )
         fig2.show()
 
