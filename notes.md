@@ -25,7 +25,12 @@ Thoughts
 
 Limitations
 - This is very US centric 
+- It would potentially be worth while to normalize to country population, but we were instructed to only use the existing data sources
 
 Things I learned
 - Economic down turns may lead to increased enrollment, as people don't have jobs so they go back to school
 - Data set is every 5 years
+- 
+- Each country is sorted into 1 income group
+- The income group with the greatest change across 2000-2010 was upper-middle income, this would need further investigation, normalization by population of this group (China is upper middle income, likely driving this)
+- Second largest increase is lower-middle income, with the same limitation as before, as India is lower middle income

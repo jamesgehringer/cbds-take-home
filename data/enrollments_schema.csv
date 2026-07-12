@@ -1,0 +1,27 @@
+country	Name of country. The default is the country name, merged in from the World Development Indicators. The name represents the country the institution is currently located in many country borders have changed over time and so this does not necessarily represent the name of the country when founded or historically.
+countrycode	Three-letter code outlined by ISO 3166 alpha-3 international standard.
+region	Region in which the institution is currently situated, merged from the World Bank.
+incomegroup	Income group, merged from the World Bank.
+iau_id	This is a unique identifier for each university-level institution. The data comes from IAU’s World Higher Education Database, which can be found here: https://whed.net/
+iau_id1	This is a unique identifier specific to our dataset, that is used to identify institutions that were once separate but later merged and today all have the same iau_id.
+eng_name	Current name of university in English. Some of these names were translated from Google Translate and will need to be cleaned up in a future iteration.
+orig_name	Current name of university in Latin characters, as reported to IAU-WHED.
+foundedyr	The year in which each respective university recognizes as the year they were founded/established.
+yrclosed	Year university closed, if closed and year known.
+private	Binary variable for private = 1, or public = 0 ; this is scraped/coded from whed.net, selfreported by the university. We do not distinguish between non-profit or for-profit.
+coordinates	GPS coordinates given in decimal degrees format (string).
+latitude	GPS coordinate representing the institution’s latitude. This data was scraped from Google Maps based on institutional name using a 100m zoom when possible. This may not be 100% accurate if an institution’s location is not accurately linked in Google Maps to the name we use in GLUED.
+longitude	GPS coordinate (decimal degree) representing the institution’s latitude. This data was scraped from Google Maps based on institutional name using a 100m zoom when possible. This may not be 100% accurate if an institution’s location is not accurately linked in Google Maps to the name we use in GLUED.
+phd_granting	Binary variable for if WHED.net lists the university as offering a PhD degree or not. Data scraped from IAU-WHED in 2020.
+m_granting	Binary variable for Masters degree granting or not. Data scraped from IAU-WHED in 2020.
+b_granting	Binary variable for Bachelor’s degree granting or not GLUED aims to exclude all nondegree-granting institutions but there are some very specialized institutions that offer doctoral degrees but not bachelor programs. 
+divisions	Data coded from IAU-WHED based on number of separate divisions listed it represents the number of different faculties the university has (Arts & Science, Business, Architecture, Education, etc.).
+total_fields	This is the number of total degree programs offered by the university as listed on IAUWHED if a university offers a BA and an MA in Sociology, that would be counted twice.
+unique_fields	This is the number of unique degree programs offered by the university as listed on IAUWHED so if a university offers a BA and an MA in Sociology, that would be counted only once in this variable. We include it to capture the extent of curricular breadth offered.
+specialized	This is a binary variable we created, to mean if the institution is “specialized” it is coded as 1 if the institution has a list of words in its name: Arts, Theater, Music, Drama, Institute, or if it has less than three unique programs.
+merger	This is a binary variable for if the university today is the result of a merger in the past between multiple/other institutions.
+noiau	This is a binary variable (0/1) to identify if the university does not have an IAU ID on WHED.
+year	Calendar year
+students5_interpolated	Raw or interpolated enrolment data input from original sources
+students5_extrapolated	Extrapolated enrolment data (see section on Treatment of Missing Data)
+students5_estimated	Estimated enrolment data this variable includes raw, interpolated, or extrapolated values and in addition to that, fills in an estimated value for institutions that never reported any enrolment data (see section on Treatment of Missing Data)
