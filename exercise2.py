@@ -40,3 +40,19 @@ fig2 = px.scatter(
 )
 fig2.data[1].visible = 'legendonly' # Hides trendline by default
 fig2.show()
+
+df_agg_across_year = df_joined.groupby(['country']).\
+        agg(students5_estimated_mean=('students5_estimated', 'mean'),
+            students5_estimated_std=('students5_estimated', 'std'),
+            students5_estimated_sum=('students5_estimated', 'sum')).reset_index()
+
+test = df_joined.groupby("country")['students5_estimated_sum'].mean()
+test2 = df_joined.groupby("country")['gdp'].mean()
+fig3 = px.scatter(
+    x=test, 
+    y=test2, 
+    # color="region",        # Different colors per group
+    # hover_data=["gdp", "country", "year"], # Additional info on mouse hover
+    # trendline="lowess"
+)
+fig3.show()
