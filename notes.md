@@ -6,7 +6,7 @@
 - Affirmative action
 
 # Decreases
-- Economic Downrurns/Recessions
+- **Economic Downrurns/Recessions** 2008 Recession is global
 - Dotcom bubble, housing crisis, start of Covid
 - International Conflicts
 - Wars (Vietnam, Korea, Middle East x2)
