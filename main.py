@@ -8,8 +8,8 @@ class HistoricalEventFinder:
         
         # Drop rows with missing data in column: 'students5_estimated'
         self.df = self.df.dropna(subset=['students5_estimated'])
-
-        self.df_income = self.df.groupby(['year', 'incomegroup']).\
+        self.df_count_per_region_per_income = self.df.groupby(['region', 'incomegroup']).agg(country_count=('country', 'nunique')).reset_index()
+        self.df_income = self.df.groupby(['year', 'incomegroup','region']).\
             agg(students5_estimated_sum=('students5_estimated', 'sum'),
                 students5_estimated_mean=('students5_estimated', 'mean'),
                 students5_estimated_std=('students5_estimated', 'std')).reset_index()
@@ -20,6 +20,8 @@ class HistoricalEventFinder:
                 students5_estimated_sum=('students5_estimated', 'sum')).reset_index()
         
         self.df["percent_change"]=self.df['students5_estimated_sum'].pct_change()*100
+
+        
 
     def plot_line_chart(self, start_year, end_year):
         title = "Enrollment by Country from " + str(start_year)+ " to " +  str(end_year)
@@ -54,6 +56,8 @@ class HistoricalEventFinder:
                 y="students5_estimated_sum", 
                 color="incomegroup", # Creates a separate line for each unique value in this column
                 title=title,
+                facet_col="region",
+                facet_col_wrap=3, 
                 error_y="students5_estimated_std"
             )
 
@@ -114,8 +118,12 @@ class HistoricalEventFinder:
         
         historyObj.plot_line_chart( start_year, end_year)
         historyObj.plot_line_chart_by_income( start_year, end_year)
-        self.plot_change_map( start_year, end_year)
+        historyObj.plot_change_map( start_year, end_year)
+        historyObj.plot_bar_graph_percent_change(start_year, end_year)
 
+        print(self.df_count_per_region_per_income)
+
+    def plot_bar_graph_percent_change(self, start_year, end_year):
         fig = px.bar(self.df, x="year", 
                 y="percent_change", color="incomegroup", title="Long-Form Input", hover_data=['country'])
         fig.add_vrect(
@@ -125,7 +133,10 @@ class HistoricalEventFinder:
             layer="below", 
             line_width=0
         )
-        fig.show()
+
+        fig.write_html("results\\percent_change_bar_graph.html")
+        fig.write_image("results\\percent_change_bar_graph.png")
+        # fig.show()
 
 if __name__ == "__main__":
     historyObj = HistoricalEventFinder(r'c:\Users\james\Documents\Repos\cbds-take-home\data\enrollments.csv')

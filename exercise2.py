@@ -28,18 +28,24 @@ fig = px.scatter(
     size="gdp",     # Bubble size based on values
     hover_data=["gdp", "country"] # Additional info on mouse hover
 )
-fig.show()
+# fig.show()
+
+fig.write_html("results\\gdp_vs_enrollement_scatter_gdp_scaled_points.html")
+fig.write_image("results\\gdp_vs_enrollement_scatter_gdp_scaled_points.png")
 
 fig2 = px.scatter(
     df_joined, 
-    x="gdp", 
-    y="students5_estimated_sum", 
+    x="students5_estimated_sum", 
+    y="gdp", 
     color="region",        # Different colors per group
     hover_data=["gdp", "country", "year"], # Additional info on mouse hover
     trendline="lowess"
 )
 fig2.data[1].visible = 'legendonly' # Hides trendline by default
-fig2.show()
+# fig2.show()
+
+fig2.write_html("results\\gdp_vs_enrollement_scatter_with_trends.html")
+fig2.write_image("results\\gdp_vs_enrollement_scatter_with_trends.png")
 
 df_agg_across_year = df_joined.groupby(['country']).\
         agg(students5_estimated_mean=('students5_estimated', 'mean'),
@@ -49,10 +55,13 @@ df_agg_across_year = df_joined.groupby(['country']).\
 test = df_joined.groupby("country")['students5_estimated_sum'].mean()
 test2 = df_joined.groupby("country")['gdp'].mean()
 fig3 = px.scatter(
-    x=test, 
-    y=test2, 
+    x=test2, 
+    y=test, 
     # color="region",        # Different colors per group
     # hover_data=["gdp", "country", "year"], # Additional info on mouse hover
     # trendline="lowess"
 )
-fig3.show()
+# fig3.show()
+
+fig3.write_html("results\\gdp_vs_enrollement_1_point_per_country.html")
+fig3.write_image("results\\gdp_vs_enrollement_1_point_per_country.png")
