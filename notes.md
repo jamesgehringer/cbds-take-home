@@ -32,5 +32,6 @@ Things I learned
 - Data set is every 5 years
 - 
 - Each country is sorted into 1 income group
-- The income group with the greatest change across 2000-2010 was upper-middle income, this would need further investigation, normalization by population of this group (China is upper middle income, likely driving this)
-- Second largest increase is lower-middle income, with the same limitation as before, as India is lower middle income
+- The income group with the greatest change across 2000-2010 was upper-middle income, this would need further investigation, normalization by population of this group (China, Brazil, Mexico is upper middle income, likely driving this)
+- Second largest increase is lower-middle income, with the same limitation as before, as India and Philipines is lower middle income
+- If we look at things in a somewhat normalized way, in percent change, you can see low income groups countries rate went down across the 2008 financial crisis, and continued to drop beyond
