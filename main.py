@@ -46,7 +46,7 @@ class HistoricalEventFinder:
         # 4. Display the chart
         # fig.show()
         fig.write_html("results\\enrollment_by_country.html")
-        fig.write_image("results\\enrollment_by_country.png")
+        fig.write_image("results\\enrollment_by_country.png", width=1200, height=800, scale=2)
 
     def plot_line_chart_by_income(self, start_year, end_year):
         title = "Enrollment by Income Group from " + str(start_year)+ " to " +  str(end_year)
@@ -73,7 +73,7 @@ class HistoricalEventFinder:
         # 4. Display the chart
         # fig.show()
         fig.write_html("results\\enrollment_by_incomegroup.html")
-        fig.write_image("results\\enrollment_by_incomegroup.png")
+        fig.write_image("results\\enrollment_by_incomegroup.png", width=1200, height=800, scale=2)
 
     def plot_change_map(self, start_year, end_year):
         title = "Change in Enrollment by Country from " + str(start_year)+ " to " +  str(end_year)
@@ -91,7 +91,7 @@ class HistoricalEventFinder:
         )
         # fig.show()
         fig.write_html("results\\increase_by_country_worldmap.html")
-        fig.write_image("results\\increase_by_country_worldmap.png")
+        fig.write_image("results\\increase_by_country_worldmap.png", width=1200, height=800, scale=2)
 
     def find_change_over_window(self, start_year, end_year):
         change_during_event = pd.DataFrame(columns=["country", "rate_of_change", "incomegroup"])
@@ -124,7 +124,7 @@ class HistoricalEventFinder:
         )
 
         fig.write_html("results\\percent_change_bar_graph.html")
-        fig.write_image("results\\percent_change_bar_graph.png")
+        fig.write_image("results\\percent_change_bar_graph.png", width=1200, height=800, scale=2)
         # fig.show()
 
     def main(self):
