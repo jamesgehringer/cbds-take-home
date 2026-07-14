@@ -111,17 +111,6 @@ class HistoricalEventFinder:
         return change_during_event
 
 
-    def main(self):
-        #put your years of interest here
-        #with more time, I'd add input validation
-        start_year, end_year = 2000, 2010
-        
-        historyObj.plot_line_chart( start_year, end_year)
-        historyObj.plot_line_chart_by_income( start_year, end_year)
-        historyObj.plot_change_map( start_year, end_year)
-        historyObj.plot_bar_graph_percent_change(start_year, end_year)
-
-        print(self.df_count_per_region_per_income)
 
     def plot_bar_graph_percent_change(self, start_year, end_year):
         fig = px.bar(self.df, x="year", 
@@ -137,6 +126,18 @@ class HistoricalEventFinder:
         fig.write_html("results\\percent_change_bar_graph.html")
         fig.write_image("results\\percent_change_bar_graph.png")
         # fig.show()
+
+    def main(self):
+        #put your years of interest here
+        #with more time, I'd add input validation
+        start_year, end_year = 2000, 2010
+        
+        historyObj.plot_line_chart( start_year, end_year)
+        historyObj.plot_line_chart_by_income( start_year, end_year)
+        historyObj.plot_change_map( start_year, end_year)
+        historyObj.plot_bar_graph_percent_change(start_year, end_year)
+
+        print(self.df_count_per_region_per_income)
 
 if __name__ == "__main__":
     historyObj = HistoricalEventFinder(r'c:\Users\james\Documents\Repos\cbds-take-home\data\enrollments.csv')

@@ -44,26 +44,26 @@
 | --- | --- | --- |
 | East Asia and Pacific | High income | 8 |
 | East Asia and Pacific | Low income | 1 |
-| East Asia and Pacific | Lower middle income | 9 |
+| East Asia and Pacific | Lower middle income | **9** |
 | East Asia and Pacific | Upper middle income | 7 |
-| Europe and Central Asia | High income | 34 |
+| Europe and Central Asia | High income | **34** |
 | Europe and Central Asia | Low income | 1 |
 | Europe and Central Asia | Lower middle income | 4 |
 | Europe and Central Asia | Upper middle income | 14 |
 | Latin America and Caribbean | High income | 8 |
 | Latin America and Caribbean | Low income | 1 |
 | Latin America and Caribbean | Lower middle income | 4 |
-| Latin America and Caribbean | Upper middle income | 17 |
-| Middle East and North Africa | High income | 8 |
+| Latin America and Caribbean | Upper middle income | **17** |
+| Middle East and North Africa | High income | **8** |
 | Middle East and North Africa | Low income | 2 |
 | Middle East and North Africa | Lower middle income | 6 |
 | Middle East and North Africa | Upper middle income | 5 |
-| North America | High income | 2 |
+| North America | High income | **2** |
 | South Asia | Low income | 1 |
-| South Asia | Lower middle income | 6 |
+| South Asia | Lower middle income | **6** |
 | South Asia | Upper middle income | 1 |
 | Sub-Saharan Africa | High income | 2 |
-| Sub-Saharan Africa | Low income | 23 |
+| Sub-Saharan Africa | Low income | **23** |
 | Sub-Saharan Africa | Lower middle income | 18 |
 | Sub-Saharan Africa | Upper middle income | 5 |
 
